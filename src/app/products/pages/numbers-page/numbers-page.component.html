@@ -1,0 +1,30 @@
+<p-panel [showHeader]="false">
+  <h1>Pipes Básicos Numericos</h1>
+  <hr>
+  <p>
+    Pipes incluidos en Angular
+  </p>
+</p-panel>
+
+<div class="grid mt-2">
+  <div class="col-12 md:col-4">
+    <p-card header="Ventas Netas">
+      {{totalSells | number:'1.2-2'}}
+    </p-card>
+  </div>
+
+  <div class="col-12 md:col-4">
+    <p-card header="Ventas Brutas">
+      {{totalSells | currency:'' : 'symbol-narrow'}}
+    </p-card>
+  </div>
+
+  <div class="col-12 md:col-4">
+    <p-card header="Ganancia Porcentual">
+      {{percent | percent: '1.2-2' }}
+    </p-card>
+  </div>
+
+
+</div>
+

@@ -1,0 +1,66 @@
+<p-panel [showHeader]="false">
+  <h1>Pipes No tan comunes</h1>
+  <hr>
+  <p>
+    Pipes incluidos en Angular
+  </p>
+</p-panel>
+
+<div class="grid mt-2">
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
+      <p> Saludos {{name}} es un placer {{gender | i18nSelect:invitationMap}}</p>
+
+      <p-button
+        (click)='changeClient()'> Cambia nombre
+      </p-button>
+    </p-fieldset>
+  </div>
+
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
+      <p>{{clientes.length | i18nPlural:clientsMap}}</p>
+      <p-button
+        (click)='deleteClient()'> Borrar Cliente
+      </p-button>
+    </p-fieldset>
+  </div>
+
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="Slice Pipe" [toggleable]="true">
+      <b>Original</b>
+      <pre>{{clientes}}</pre>
+      <b>slice:0:2</b>
+      <pre>{{clientes | slice:0:2}}</pre>
+    </p-fieldset>
+  </div>
+
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="Json Pipe" [toggleable]="true">
+      <pre>{{person |json}}</pre>
+    </p-fieldset>
+  </div>
+
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="KeyValue Pipe" [toggleable]="true">
+      <ul>
+        <li *ngFor="let i of person | keyvalue">
+          <b>{{i.key | titlecase}}</b>: {{i.value}}
+        </li>
+      </ul>
+    </p-fieldset>
+  </div>
+
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="Async Pipe" [toggleable]="true">
+      <pre *ngIf="!(myObservableTimer | async)">{{myObservableTimer | async}}Resolviendo observable</pre>
+      <pre>{{myObservableTimer | async}}</pre>
+
+      <pre *ngIf="!(promiseValue | async)">{{promiseValue | async}}Resolviendo Promesa</pre>
+      <pre>{{promiseValue | async}}</pre>
+
+
+    </p-fieldset>
+  </div>
+</div>
+
